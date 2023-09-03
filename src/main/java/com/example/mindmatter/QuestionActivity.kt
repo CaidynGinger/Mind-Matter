@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.mindmatter.databinding.ActivityQuestionBinding
 import com.example.mindmatter.models.Constants.getQuestions
 import com.example.mindmatter.models.Constants.questionsList
@@ -34,7 +35,7 @@ class QuestionActivity : AppCompatActivity() {
 
         var currentQuestionNumber = 0
         var userScore = 0
-        var currentSelectedAnswer = ""
+        var currentSelectedAnswer: String? = null
 
 
         if (subjectId != null) {
@@ -57,27 +58,50 @@ class QuestionActivity : AppCompatActivity() {
 
         //select question
 
+        fun cleanSelectedAnswers() {
+            binding.dspAnswerOne.background = null
+            binding.dspAnswerTwo.background = null
+            binding.dspAnswerThree.background = null
+            binding.dspAnswerFour.background = null
+            currentSelectedAnswer = null
+        }
+
         binding.dspAnswerOne.setOnClickListener {
-            binding.dspAnswerOne.setBackgroundColor(Color.parseColor("#ff6b81"))
+            cleanSelectedAnswers()
             currentSelectedAnswer = listOfQuestions[currentQuestionNumber].optionOne
+            binding.dspAnswerOne.setBackgroundColor(Color.parseColor("#ff6b81"))
         }
         binding.dspAnswerTwo.setOnClickListener {
-            binding.dspAnswerTwo.setBackgroundColor(Color.parseColor("#ff6b81"))
+            cleanSelectedAnswers()
             currentSelectedAnswer = listOfQuestions[currentQuestionNumber].optionTwo
-
-
+            binding.dspAnswerTwo.setBackgroundColor(Color.parseColor("#ff6b81"))
         }
         binding.dspAnswerThree.setOnClickListener {
-            binding.dspAnswerThree.setBackgroundColor(Color.parseColor("#ff6b81"))
+            cleanSelectedAnswers()
             currentSelectedAnswer = listOfQuestions[currentQuestionNumber].optionThree
-
-
+            binding.dspAnswerThree.setBackgroundColor(Color.parseColor("#ff6b81"))
         }
         binding.dspAnswerFour.setOnClickListener {
-            binding.dspAnswerFour.setBackgroundColor(Color.parseColor("#ff6b81"))
+            cleanSelectedAnswers()
             currentSelectedAnswer = listOfQuestions[currentQuestionNumber].optionFour
+            binding.dspAnswerFour.setBackgroundColor(Color.parseColor("#ff6b81"))
         }
         // answer button click
+
+        binding.btnNext.setOnClickListener {
+            if (currentSelectedAnswer === null) {
+                Toast.makeText(this, "Please select an answer", Toast.LENGTH_LONG).show()
+            }
+            else {
+                if(currentSelectedAnswer === listOfQuestions[currentQuestionNumber].correctAnswer) {
+                    userScore = +1
+                }
+                cleanSelectedAnswers()
+                currentQuestionNumber = +1
+                updateQuestionList(currentQuestionNumber)
+            }
+
+        }
     }
 
 }
