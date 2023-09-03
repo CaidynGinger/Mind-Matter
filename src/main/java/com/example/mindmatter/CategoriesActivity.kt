@@ -57,6 +57,16 @@ class CategoriesActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val biologyCard = findViewById<CardView>(R.id.BiologyCard)
+
+        biologyCard.setOnClickListener {
+            // Create an intent to navigate to the second activity
+            val intent = Intent(this, QuestionActivity::class.java)
+            intent.putExtra("subjectId", 610)
+            intent.putExtra("username", username.toString())
+            startActivity(intent)
+        }
+
         binding.settingsButton.setOnClickListener{
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)

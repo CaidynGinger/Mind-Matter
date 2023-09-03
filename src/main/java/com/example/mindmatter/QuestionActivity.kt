@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.mindmatter.databinding.ActivityQuestionBinding
+import com.example.mindmatter.models.Constants.getQuestionsBiology
 import com.example.mindmatter.models.Constants.getQuestionsChemistry
 import com.example.mindmatter.models.Constants.getQuestionsPhysics
 import com.example.mindmatter.models.Constants.questionsList
@@ -46,6 +47,9 @@ class QuestionActivity : AppCompatActivity() {
             }
             if (subjectId == 620) {
                 getQuestionsChemistry()
+            }
+            if (subjectId == 610) {
+                getQuestionsBiology()
             }
         }
         val listOfQuestions:ArrayList<Question> = questionsList
@@ -100,6 +104,11 @@ class QuestionActivity : AppCompatActivity() {
 
         binding.btnNext.setOnClickListener {
             currentQuestionNumber += 1
+            if(currentSelectedAnswer === listOfQuestions[currentQuestionNumber - 1].correctAnswer) {
+                userScore += 1
+                binding.dspCurrentScore.text = "Current Score $userScore/${listOfQuestions.size}"
+                Log.d("AAA list of questions", userScore.toString())
+            }
             if (currentSelectedAnswer === null) {
                 Toast.makeText(this, "Please select an answer", Toast.LENGTH_LONG).show()
             }
@@ -117,12 +126,6 @@ class QuestionActivity : AppCompatActivity() {
                 finish()
             }
             else {
-                Log.d("AAA list of questions", "next q")
-                if(currentSelectedAnswer === listOfQuestions[currentQuestionNumber - 1].correctAnswer) {
-                    userScore += 1
-                    binding.dspCurrentScore.text = "Current Score $userScore/${listOfQuestions.size}"
-                    Log.d("AAA list of questions", userScore.toString())
-                }
                 cleanSelectedAnswers()
                 updateQuestionList(currentQuestionNumber)
             }

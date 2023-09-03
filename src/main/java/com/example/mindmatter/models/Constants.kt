@@ -36,9 +36,33 @@ object Constants {
             "sulfur dioxide ",
             "lead compounds",
         )
+    val que4 = Question(
+        4,
+        "In many countries river water is used for the washing of clothes.\n" +
+                "The same water is not considered to be safe for drinking.\n" +
+                "Why is it not safe for drinking? ",
+        "because river water contains dissolved salts",
+        "because river water may contain harmful bacteria",
+        "because river water may contain small particles of sand",
+        "because river water may contain soap from washing clothes",
+        "because river water may contain harmful bacteria",
+    )
+    val que5 = Question(
+        5,
+        "Petroleum is a mixture of hydrocarbons which can be separated into fractions using fractional\n" +
+                "distillation.\n" +
+                "Which fraction is used as fuel in jet engines?",
+        "bitumen",
+        "gasoline",
+        "kerosene",
+        "naphtha",
+        "kerosene",
+    )
     questionsList.add(que1)
     questionsList.add(que2)
     questionsList.add(que3)
+    questionsList.add(que4)
+    questionsList.add(que5)
     }
 
     fun getQuestionsPhysics() {
@@ -90,6 +114,60 @@ object Constants {
             "protons",
             "tungsten atoms",
             "electrons",
+        )
+        questionsList.add(que1)
+        questionsList.add(que2)
+        questionsList.add(que3)
+        questionsList.add(que4)
+        questionsList.add(que5)
+    }
+
+    fun getQuestionsBiology() {
+        questionsList.clear()
+        val que1 = Question(
+            1,
+            "Which process provides the raw materials needed for tissue repair?",
+            "excretion",
+            "growth",
+            "nutrition",
+            "respiration",
+            "nutrition",
+        )
+        val que2 = Question(
+            2,
+            "Which group does not contain animals that are arthropods?",
+            "annelids",
+            "arachnids",
+            "crustaceans",
+            "insects",
+            "annelids",
+        )
+        val que3 = Question(
+            3,
+            "Which statement is correct for all catalysts? ",
+            "They are enzymes.",
+            "They are proteins.",
+            "They speed up chemical reactions.",
+            "They work in living organisms.",
+            "They speed up chemical reactions.",
+        )
+        val que4 = Question(
+            4,
+            "How does sweating cool the body?",
+            "Sweating causes vasodilation.",
+            "Sweating decreases the water content of the blood.",
+            "Urea and salt are lost from the body in sweat.",
+            "Water in sweat evaporates from the skin.",
+            "Water in sweat evaporates from the skin.",
+        )
+        val que5 = Question(
+            5,
+            "Which environmental factor is not always a requirement for seed germination?",
+            "light",
+            "oxygen",
+            "suitable temperature",
+            "water",
+            "light",
         )
         questionsList.add(que1)
         questionsList.add(que2)
