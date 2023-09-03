@@ -8,6 +8,7 @@ object Constants {
 
 // function to populate our questions
     fun getQuestions(subjectId: Int) {
+     questionsList.clear()
         val que1 = Question(
             1,
             "Which fuel does not produce carbon dioxide when it burns?",

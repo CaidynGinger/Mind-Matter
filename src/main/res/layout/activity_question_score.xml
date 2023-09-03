@@ -65,6 +65,7 @@
                     android:layout_marginBottom="20dp"
                     />
                 <TextView
+                    android:id="@+id/dspBeatHighScore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Congratulations you beat the high score of 24 with a score of 80"
@@ -72,6 +73,14 @@
                     android:textColor="@color/white"
                     android:textAlignment="center"
                     />
+                <TextView
+                    android:id="@+id/dspScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your score was 10 ot of 20 unfortunelty you did not beat the high score"
+                    android:textSize="24dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
 
@@ -80,7 +89,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_next"
+            android:id="@+id/backToCategories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

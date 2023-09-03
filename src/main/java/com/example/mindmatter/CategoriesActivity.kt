@@ -1,11 +1,13 @@
 package com.example.mindmatter
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.cardview.widget.CardView
 import com.example.mindmatter.databinding.ActivityCategoriesBinding
+import com.google.gson.Gson
 
 class CategoriesActivity : AppCompatActivity() {
 
@@ -19,7 +21,16 @@ class CategoriesActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val username = intent?.extras?.getString("username")
+        // get scores
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+// Store data
+
+
+// Retrieve data
+
+        val username = sharedPreferences.getString("username", "user")
 
         Log.d("AAA Welcome: ", username.toString())
 
@@ -35,5 +46,9 @@ class CategoriesActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.settingsButton.setOnClickListener{
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#24202E"
     tools:context=".CategoriesActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -29,12 +30,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:background="#24202E">
             <TextView
                 android:id="@+id/dsp_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:text="Welcome user"/>
             <Space
@@ -42,6 +44,7 @@
                 android:layout_height="10dp"/>
             <TextView
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:text="Select a Subject for past papers you are looking for"/>
@@ -110,5 +113,17 @@
 
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingsButton"
+        android:background="@color/primary_light"
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20sp"
+        android:layout_marginRight="30sp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

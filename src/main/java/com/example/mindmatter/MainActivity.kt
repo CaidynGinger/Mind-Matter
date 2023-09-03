@@ -1,5 +1,6 @@
 package com.example.mindmatter
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,14 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
-
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         setContentView(view)
 
         binding.btnStart.setOnClickListener {
             var username = binding.etUsername.text
-            Log.d(
-                "AAA captured", username.toString()
-            )
 
             if (username != null) {
                 if (username.isBlank()) {
@@ -32,12 +30,13 @@ class MainActivity : AppCompatActivity() {
                         "AAA Invalid username", "please fill username"
                     )
                 } else {
-                    Log.d(
-                        "AAA captured username: ", username.toString()
-                    )
-                    val intent = Intent(this, CategoriesActivity:: class.java)
-                    intent.putExtra("username", username.toString())
+                    val value = sharedPreferences.getString("Username", "user")
 
+                    val editor = sharedPreferences.edit()
+                    editor.putString("username", username.toString())
+                    editor.apply()
+
+                    val intent = Intent(this, CategoriesActivity:: class.java)
                     startActivity(intent)
                 }
             }

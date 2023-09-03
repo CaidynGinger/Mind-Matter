@@ -43,8 +43,11 @@ class QuestionActivity : AppCompatActivity() {
             getQuestions(subjectId)
         }
         val listOfQuestions:ArrayList<Question> = questionsList
-        Log.d("AAA list of questions", listOfQuestions[0].questionText)
 
+
+
+
+        binding.dspCurrentScore.text = "Current Score $userScore/${listOfQuestions.size}"
 
 
         fun updateQuestionList(currentQuestionNumber: Int) {
@@ -95,18 +98,24 @@ class QuestionActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please select an answer", Toast.LENGTH_LONG).show()
             }
             else if (currentQuestionNumber == listOfQuestions.size) {
-                val intent = Intent(this, QuestionScoreActivity:: class.java)
 
-                intent.putExtra("userScore", userScore.toString())
+                val intent = Intent(this, QuestionScoreActivity:: class.java)
+                cleanSelectedAnswers()
                 val username = intent?.extras?.getString("username")
-                intent.putExtra("username", username.toString())
+                intent.putExtra("userScore", userScore)
+                Log.d("AAA list of questions", username.toString())
+                intent.putExtra("totalScore", listOfQuestions.size)
+                intent.putExtra("subjectId", subjectId)
+                intent.putExtra("username", username)
                 startActivity(intent)
                 finish()
             }
             else {
-                if(currentSelectedAnswer === listOfQuestions[currentQuestionNumber].correctAnswer) {
+                Log.d("AAA list of questions", "next q")
+                if(currentSelectedAnswer === listOfQuestions[currentQuestionNumber - 1].correctAnswer) {
                     userScore += 1
-                    binding.dspCurrentScore.text = "Current Score $userScore/10"
+                    binding.dspCurrentScore.text = "Current Score $userScore/${listOfQuestions.size}"
+                    Log.d("AAA list of questions", userScore.toString())
                 }
                 cleanSelectedAnswers()
                 updateQuestionList(currentQuestionNumber)
