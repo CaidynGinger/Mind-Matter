@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MindMatter"
         tools:targetApi="31">
         <activity
+            android:name=".QuestionScoreActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaperSelectionActivity"
             android:exported="false" />
         <activity

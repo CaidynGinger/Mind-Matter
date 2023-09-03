@@ -31,6 +31,7 @@ class CategoriesActivity : AppCompatActivity() {
             // Create an intent to navigate to the second activity
             val intent = Intent(this, QuestionActivity::class.java)
             intent.putExtra("subjectId", 620)
+            intent.putExtra("username", username.toString())
             startActivity(intent)
         }
 

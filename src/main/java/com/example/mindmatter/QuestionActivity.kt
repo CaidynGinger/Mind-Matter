@@ -1,5 +1,6 @@
 package com.example.mindmatter
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -89,18 +90,27 @@ class QuestionActivity : AppCompatActivity() {
         // answer button click
 
         binding.btnNext.setOnClickListener {
+            currentQuestionNumber += 1
             if (currentSelectedAnswer === null) {
                 Toast.makeText(this, "Please select an answer", Toast.LENGTH_LONG).show()
             }
+            else if (currentQuestionNumber == listOfQuestions.size) {
+                val intent = Intent(this, QuestionScoreActivity:: class.java)
+
+                intent.putExtra("userScore", userScore.toString())
+                val username = intent?.extras?.getString("username")
+                intent.putExtra("username", username.toString())
+                startActivity(intent)
+                finish()
+            }
             else {
                 if(currentSelectedAnswer === listOfQuestions[currentQuestionNumber].correctAnswer) {
-                    userScore = +1
+                    userScore += 1
+                    binding.dspCurrentScore.text = "Current Score $userScore/10"
                 }
                 cleanSelectedAnswers()
-                currentQuestionNumber = +1
                 updateQuestionList(currentQuestionNumber)
             }
-
         }
     }
 

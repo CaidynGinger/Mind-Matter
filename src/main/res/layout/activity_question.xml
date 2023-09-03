@@ -41,10 +41,11 @@
                     app:cardBackgroundColor="#a29bfe"
                     app:cardElevation="5dp">
                     <TextView
+                        android:id="@+id/dspCurrentScore"
                         android:padding="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Current Score 1/10"
+                        android:text="Current Score 0/10"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="20dp"/>
@@ -144,7 +145,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_next"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Next Question"
                     android:padding="10dp"
                     android:textSize="20sp"
