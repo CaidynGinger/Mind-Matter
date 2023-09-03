@@ -7,7 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.mindmatter.databinding.ActivityQuestionBinding
-import com.example.mindmatter.models.Constants.getQuestions
+import com.example.mindmatter.models.Constants.getQuestionsChemistry
+import com.example.mindmatter.models.Constants.getQuestionsPhysics
 import com.example.mindmatter.models.Constants.questionsList
 import com.example.mindmatter.models.Question
 
@@ -40,7 +41,12 @@ class QuestionActivity : AppCompatActivity() {
 
 
         if (subjectId != null) {
-            getQuestions(subjectId)
+            if (subjectId == 625) {
+                getQuestionsPhysics()
+            }
+            if (subjectId == 620) {
+                getQuestionsChemistry()
+            }
         }
         val listOfQuestions:ArrayList<Question> = questionsList
 

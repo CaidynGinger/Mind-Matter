@@ -32,14 +32,14 @@ class QuestionScoreActivity : AppCompatActivity() {
         val username = sharedPreferences.getString("username", "user")
 
         binding.dspScore.text =
-            "Well done $username your score was $userScore ot of $totalScore unfortunately you did not beat the high score"
+            "Well done $username your score was $userScore out of $totalScore unfortunately you did not beat the high score."
         binding.dspBeatHighScore.text =
-            "Well done $username you Beat the high score of $totalScore with a score of $userScore"
+            "Well done $username you Beat the high score of $totalScore with a score of $userScore."
         binding.dspBeatHighScore.visibility = View.GONE
         binding.dspScore.visibility = View.GONE
 
         if (userScore != null) {
-            if (userScore > 4) {
+            if (userScore > 1) {
                 binding.dspBeatHighScore.visibility = View.VISIBLE
             } else {
                 binding.dspScore.visibility = View.VISIBLE

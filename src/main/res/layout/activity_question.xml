@@ -61,14 +61,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:text="Question Text"
-                    android:textSize="36dp"/>
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="10"
-                    android:progress="4"
-                    app:indicatorColor="@color/primary_light"
-                    />
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Binding
 import android.util.Log
 import androidx.cardview.widget.CardView
 import com.example.mindmatter.databinding.ActivityCategoriesBinding
@@ -36,12 +37,22 @@ class CategoriesActivity : AppCompatActivity() {
 
         binding.dspUsername.setText("Welcome, $username")
 
-        val cardView = findViewById<CardView>(R.id.ChemistryCard)
+        val chemistryCard = findViewById<CardView>(R.id.ChemistryCard)
 
-        cardView.setOnClickListener {
+        chemistryCard.setOnClickListener {
             // Create an intent to navigate to the second activity
             val intent = Intent(this, QuestionActivity::class.java)
             intent.putExtra("subjectId", 620)
+            intent.putExtra("username", username.toString())
+            startActivity(intent)
+        }
+
+        val physicsCard = findViewById<CardView>(R.id.PhysicsCard)
+
+        physicsCard.setOnClickListener {
+            // Create an intent to navigate to the second activity
+            val intent = Intent(this, QuestionActivity::class.java)
+            intent.putExtra("subjectId", 625)
             intent.putExtra("username", username.toString())
             startActivity(intent)
         }
